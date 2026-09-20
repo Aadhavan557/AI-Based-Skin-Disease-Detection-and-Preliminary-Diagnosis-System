@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyze Skin – DermaAI</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="sidebar-label">Main Menu</p>
+      <a href="dashboard.html" class="sidebar-link"><span class="link-icon">🏠</span> Dashboard</a>
+      <a href="analyze.html"   class="sidebar-link active"><span class="link-icon">🔬</span> Analyze Skin</a>
+      <a href="history.html"   class="sidebar-link"><span class="link-icon">📋</span> Prediction History</a>
+      <a href="profile.html"   class="sidebar-link"><span class="link-icon">👤</span> My Profile</a>
+      <p class="sidebar-label" style="margin-top:24px">Support</p>
+      <a href="about.html"   class="sidebar-link"><span class="link-icon">ℹ️</span> About</a>
+      <a href="contact.html" class="sidebar-link"><span class="link-icon">📬</span> Contact</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" onclick="Auth.logout()">
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary)">A</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username user-display-name">Loading…</div>
+          <div class="sidebar-role text-muted fs-sm">Sign Out →</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+    <div class="app-topbar">
+      <div style="display:flex; align-items:center; gap:14px">
+        <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <div>
+          <h4 style="font-size:1rem; font-weight:700">Skin Analysis</h4>
+          <p style="font-size:.8rem; color:var(--text-muted)">Upload and analyze your skin image</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="history.html" class="btn btn-ghost btn-sm">View History</a>
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary);cursor:pointer" onclick="window.location='profile.html'">A</div>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <div class="page-title">
+        <h2>AI Skin Analysis</h2>
+        <p>Upload or capture an image of the affected skin area for AI-assisted preliminary analysis.</p>
+      </div>
+
+      <div class="grid-2" style="align-items:start; gap:28px">
+
+        <!-- Upload Area -->
+        <div>
+
+          <!-- Upload Zone (default state) -->
+          <div id="upload-section">
+            <div class="upload-zone" id="drop-zone" role="button" tabindex="0" aria-label="Upload skin image">
+              <div class="upload-icon">🖼️</div>
+              <p class="upload-text">Drag &amp; Drop your image here</p>
+              <p class="upload-hint" style="margin-bottom:20px">or</p>
+              <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">Choose Image</button>
+              <p class="upload-hint" style="margin-top:16px">Supported: JPG, JPEG, PNG · Max 10MB</p>
+              <input type="file" id="file-input" accept="image/jpeg,image/jpg,image/png,image/webp" class="sr-only" />
+            </div>
+
+            <div style="text-align:center; margin:16px 0">
+              <span style="color:var(--text-muted); font-size:.875rem">or</span>
+            </div>
+
+            <button class="btn btn-outline w-full" onclick="startCamera()">
+              📸 Use Camera
+            </button>
+          </div>
+
+          <!-- Camera Section -->
+          <div id="camera-section" style="display:none; flex-direction:column; gap:16px">
+            <video id="camera-video" autoplay playsinline style="width:100%; border-radius:var(--radius-xl); background:#000; max-height:400px; object-fit:cover"></video>
+            <div style="display:flex; gap:12px">
+              <button class="btn btn-primary flex-1" onclick="capturePhoto()">📷 Capture</button>
+              <button class="btn btn-outline" onclick="stopCamera()">✕ Cancel</button>
+            </div>
+          </div>
+
+          <!-- Preview Section -->
+          <div id="preview-section" style="display:none; flex-direction:column; gap:16px">
+            <div style="position:relative; border-radius:var(--radius-xl); overflow:hidden; background:#000">
+              <img id="preview-img" src="" alt="Preview" style="width:100%; max-height:420px; object-fit:contain; display:block" />
+            </div>
+            <div style="display:flex; gap:12px">
+              <button class="btn btn-primary flex-1" id="analyze-btn" onclick="analyzeImage()">
+                🔬 Analyze Image
+              </button>
+              <button class="btn btn-outline" onclick="changeImage()">🔄 Change</button>
+              <button class="btn btn-ghost" onclick="removeImage()">✕ Remove</button>
+            </div>
+          </div>
+
+          <!-- Scanning / Processing State -->
+          <div id="scanning-section" style="display:none; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px; text-align:center; background:var(--surface); border-radius:var(--radius-xl); border:1px solid var(--border)">
+            <div style="position:relative; width:120px; height:120px; margin-bottom:28px">
+              <svg width="120" height="120" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--primary)" stroke-width="6"
+                  stroke-dasharray="327" stroke-dashoffset="327"
+                  style="animation: dashProgress 2s ease-in-out infinite alternate; transform-origin:center; transform:rotate(-90deg)"/>
+              </svg>
+              <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:2.5rem">🔬</div>
+            </div>
+            <h3 style="margin-bottom:8px">Analyzing Image…</h3>
+            <p style="color:var(--text-muted); max-width:280px">AI model is processing visual features and identifying patterns. This usually takes a few seconds.</p>
+            <div style="display:flex; gap:6px; margin-top:24px">
+              <div class="skeleton" style="width:8px; height:8px; border-radius:50%; animation: pulse 1s .0s infinite"></div>
+              <div class="skeleton" style="width:8px; height:8px; border-radius:50%; animation: pulse 1s .2s infinite"></div>
+              <div class="skeleton" style="width:8px; height:8px; border-radius:50%; animation: pulse 1s .4s infinite"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Info Panel -->
+        <div style="display:flex; flex-direction:column; gap:20px">
+
+          <!-- Requirements -->
+          <div class="card">
+            <div class="card-header"><h5>📋 Image Requirements</h5></div>
+            <div class="card-body" style="padding:20px">
+              <ul style="display:flex; flex-direction:column; gap:12px">
+                <li style="display:flex; gap:10px">
+                  <span style="color:var(--success); flex-shrink:0">✓</span>
+                  <div>
+                    <div style="font-size:.875rem; font-weight:600">Clear and focused</div>
+                    <div style="font-size:.8rem; color:var(--text-muted)">Avoid blurry or partially obstructed images</div>
+                  </div>
+                </li>
+                <li style="display:flex; gap:10px">
+                  <span style="color:var(--success); flex-shrink:0">✓</span>
+                  <div>
+                    <div style="font-size:.875rem; font-weight:600">Good lighting</div>
+                    <div style="font-size:.8rem; color:var(--text-muted)">Use natural or bright, even artificial light</div>
+                  </div>
+                </li>
+                <li style="display:flex; gap:10px">
+                  <span style="color:var(--success); flex-shrink:0">✓</span>
+                  <div>
+                    <div style="font-size:.875rem; font-weight:600">Affected area visible</div>
+                    <div style="font-size:.8rem; color:var(--text-muted)">Center the skin condition in the frame</div>
+                  </div>
+                </li>
+                <li style="display:flex; gap:10px">
+                  <span style="color:var(--success); flex-shrink:0">✓</span>
+                  <div>
+                    <div style="font-size:.875rem; font-weight:600">Supported formats</div>
+                    <div style="font-size:.8rem; color:var(--text-muted)">JPG, JPEG, PNG, WebP — max 10 MB</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Privacy Notice -->
+          <div class="card">
+            <div class="card-header"><h5>🔒 Privacy &amp; Security</h5></div>
+            <div class="card-body" style="padding:20px">
+              <ul style="display:flex; flex-direction:column; gap:10px">
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary)">🛡️</span> Images are processed securely on our server
+                </li>
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary)">👤</span> Your images are linked only to your account
+                </li>
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary)">🔐</span> Secure HTTPS transmission
+                </li>
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary)">📁</span> Images stored securely and accessible only to you
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Disclaimer -->
+          <div class="disclaimer-box">
+            <span class="disclaimer-icon">⚠️</span>
+            <p class="disclaimer-text">
+              <strong>Important:</strong> AI analysis results are preliminary and for informational purposes only. Always consult a qualified dermatologist for proper medical evaluation.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<style>
+@keyframes dashProgress {
+  from { stroke-dashoffset: 327; }
+  to   { stroke-dashoffset: 60; }
+}
+</style>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/analyze.js"></script>
+</body>
+</html>

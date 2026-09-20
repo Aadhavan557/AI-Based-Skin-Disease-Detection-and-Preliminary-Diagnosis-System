@@ -1,0 +1,11 @@
+{
+  "run_timestamp": "2026-07-26T22:43:19.301257",
+  "split_dir": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\dataset_split",
+  "num_classes": 10,
+  "outputs": [
+    "class_distribution_final.png",
+    "sample_image_grid.png",
+    "average_images_per_class.png",
+    "pixel_intensity_histograms.png"
+  ]
+}

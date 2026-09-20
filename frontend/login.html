@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – DermaAI</title>
+  <meta name="description" content="Sign in to your DermaAI account to access AI-powered skin analysis." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="auth-layout">
+
+  <!-- ── Left Visual ─────────────────────────────────────── -->
+  <div class="auth-visual">
+    <img src="assets/auth_visual.png" alt="DermaAI" class="auth-visual-image" />
+
+    <!-- Logo overlay -->
+    <div class="auth-visual-logo">
+      <a href="index.html" class="logo" style="color:#fff">
+        <div class="logo-mark" style="background:rgba(255,255,255,.2)">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <span>DermaAI</span>
+      </a>
+    </div>
+
+    <!-- Bottom quote -->
+    <div class="auth-visual-overlay">
+      <div class="auth-visual-quote">
+        <h2 style="color:#fff">Your skin health journey,<br/>intelligently supported.</h2>
+        <p style="color:rgba(255,255,255,.8)">Powered by deep learning. Guided by science. Designed for you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Right Form ──────────────────────────────────────── -->
+  <div class="auth-form-side">
+    <div class="auth-form-inner">
+      <!-- Mobile logo -->
+      <a href="index.html" class="logo" style="display:none; margin-bottom:32px" id="mobile-logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+
+      <h2>Welcome Back</h2>
+      <p class="auth-subtitle">Sign in to your DermaAI account</p>
+
+      <form id="login-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <div class="input-icon">
+            <span class="icon">👤</span>
+            <input type="text" id="username" name="username" class="form-control"
+              placeholder="Enter your username" autocomplete="username" required />
+          </div>
+          <span class="field-error" id="username-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">
+            Password
+            <a href="#" style="float:right; font-size:.8rem; color:var(--primary); font-weight:500">Forgot password?</a>
+          </label>
+          <div class="input-icon">
+            <span class="icon">🔒</span>
+            <input type="password" id="password" name="password" class="form-control"
+              placeholder="Enter your password" autocomplete="current-password" required />
+          </div>
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:24px">
+          <input type="checkbox" id="remember" style="width:16px; height:16px; accent-color:var(--primary)" />
+          <label for="remember" style="font-size:.875rem; color:var(--text-secondary); cursor:pointer">Remember me for 7 days</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full btn-lg" id="login-btn">Sign In</button>
+      </form>
+
+      <div class="auth-footer-text">
+        Don't have an account? <a href="register.html">Create one</a>
+      </div>
+
+      <!-- Disclaimer -->
+      <p style="font-size:.75rem; color:var(--text-muted); text-align:center; margin-top:24px; line-height:1.6">
+        By signing in, you agree that DermaAI provides AI-assisted analysis for informational purposes only and is not a substitute for professional medical advice.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Show mobile logo on small screens
+  if (window.innerWidth < 1024) {
+    document.getElementById("mobile-logo").style.display = "flex";
+  }
+  // Redirect if already logged in
+  Auth.redirectIfLoggedIn();
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{
+  "computed_at": "2026-07-26T22:27:47.253782",
+  "dataset_dir": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\dataset_resized",
+  "sample_size": 10000,
+  "dataset_stats": {
+    "mean": [
+      0.6743196094493477,
+      0.505532518352781,
+      0.4879541365735385
+    ],
+    "std": [
+      0.2222393712547562,
+      0.19678515517128917,
+      0.20834504598995462
+    ],
+    "mean_r": 0.6743196094493477,
+    "mean_g": 0.505532518352781,
+    "mean_b": 0.4879541365735385,
+    "std_r": 0.2222393712547562,
+    "std_g": 0.19678515517128917,
+    "std_b": 0.20834504598995462
+  },
+  "imagenet_stats": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "recommendation": "dataset",
+  "per_class_stats": {
+    "1. Eczema 1677": {
+      "mean_r": 0.5641273283666494,
+      "mean_g": 0.4070368996834268,
+      "mean_b": 0.37109772314344136,
+      "num_images": 1564
+    },
+    "10. Warts Molluscum and other Viral Infections - 2103": {
+      "mean_r": 0.6316555554526193,
+      "mean_g": 0.4624679313581817,
+      "mean_b": 0.41136506711220255,
+      "num_images": 1863
+    },
+    "2. Melanoma 15.75k": {
+      "mean_r": 0.8133493843857122,
+      "mean_g": 0.6283645183894099,
+      "mean_b": 0.6031436424109401,
+      "num_images": 3132
+    },
+    "3. Atopic Dermatitis - 1.25k": {
+      "mean_r": 0.6381707485160049,
+      "mean_g": 0.46011058480399,
+      "mean_b": 0.4116972745194727,
+      "num_images": 1188
+    },
+    "4. Basal Cell Carcinoma (BCC) 3323": {
+      "mean_r": 0.7762932126570721,
+      "mean_g": 0.614640996816207,
+      "mean_b": 0.6424410313197545,
+      "num_images": 3309
+    },
+    "5. Melanocytic Nevi (NV) - 7970": {
+      "mean_r": 0.7208320162247638,
+      "mean_g": 0.5779647213682837,
+      "mean_b": 0.5306531899899852,
+      "num_images": 7957
+    },
+    "6. Benign Keratosis-like Lesions (BKL) 2624": {
+      "mean_r": 0.7140153482398208,
+      "mean_g": 0.5467267595407914,
+      "mean_b": 0.5730282556183484,
+      "num_images": 2064
+    },
+    "7. Psoriasis pictures Lichen Planus and related diseases - 2k": {
+      "mean_r": 0.5965656414421238,
+      "mean_g": 0.4314198043005807,
+      "mean_b": 0.39079064711745903,
+      "num_images": 1943
+    },
+    "8. Seborrheic Keratoses and other Benign Tumors - 1.8k": {
+      "mean_r": 0.6142031028903261,
+      "mean_g": 0.4683364976571531,
+      "mean_b": 0.42815424960000176,
+      "num_images": 1823
+    },
+    "9. Tinea Ringworm Candidiasis and other Fungal Infections - 1.7k": {
+      "mean_r": 0.5936649467701814,
+      "mean_g": 0.4307166279578695,
+      "mean_b": 0.40176386006024417,
+      "num_images": 1624
+    }
+  },
+  "usage": {
+    "tensorflow_keras": "tf.keras.layers.Normalization(mean=[R_mean, G_mean, B_mean], variance=[R_std**2, G_std**2, B_std**2])",
+    "pytorch_transforms": "transforms.Normalize(mean=[R_mean, G_mean, B_mean], std=[R_std, G_std, B_std])"
+  }
+}

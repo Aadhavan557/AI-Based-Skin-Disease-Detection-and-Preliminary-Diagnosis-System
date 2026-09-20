@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+.venv
+venv/
+env/
+node_modules/
+.DS_Store
+
+# Datasets
+dataset/
+dataset_augmented/
+dataset_resized/
+dataset_split/

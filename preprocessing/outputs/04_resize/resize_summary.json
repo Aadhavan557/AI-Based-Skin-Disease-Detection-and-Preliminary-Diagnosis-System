@@ -1,0 +1,13 @@
+{
+  "run_timestamp": "2026-07-26T22:22:37.331457",
+  "source_dataset": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\dataset",
+  "output_dataset": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\dataset_resized",
+  "target_width": 224,
+  "target_height": 224,
+  "resize_strategy": "center_crop",
+  "output_format": "JPEG",
+  "convert_to_rgb": true,
+  "total_images": 26467,
+  "success": 26467,
+  "errors": 0
+}

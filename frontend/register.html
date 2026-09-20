@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account – DermaAI</title>
+  <meta name="description" content="Join DermaAI and start your AI-powered skin analysis journey." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="auth-layout">
+
+  <!-- ── Left Visual ─────────────────────────────────────── -->
+  <div class="auth-visual">
+    <img src="assets/auth_visual.png" alt="DermaAI" class="auth-visual-image" />
+    <div class="auth-visual-logo">
+      <a href="index.html" class="logo" style="color:#fff">
+        <div class="logo-mark" style="background:rgba(255,255,255,.2)">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <span>DermaAI</span>
+      </a>
+    </div>
+    <div class="auth-visual-overlay">
+      <div class="auth-visual-quote">
+        <h2 style="color:#fff">Advanced AI meets<br/>dermatological care.</h2>
+        <p style="color:rgba(255,255,255,.8)">Join thousands gaining skin health insights with AI-powered analysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Right Form ──────────────────────────────────────── -->
+  <div class="auth-form-side">
+    <div class="auth-form-inner">
+      <a href="index.html" class="logo" style="display:none; margin-bottom:32px" id="mobile-logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+
+      <h2>Create Your Account</h2>
+      <p class="auth-subtitle">Start your AI skin health journey — free forever</p>
+
+      <form id="register-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <div class="input-icon">
+            <span class="icon">👤</span>
+            <input type="text" id="username" class="form-control"
+              placeholder="Choose a username" autocomplete="username" required minlength="3" />
+          </div>
+          <span class="field-error" id="username-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <div class="input-icon">
+            <span class="icon">✉️</span>
+            <input type="email" id="email" class="form-control"
+              placeholder="you@example.com" autocomplete="email" required />
+          </div>
+          <span class="field-error" id="email-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-icon">
+            <span class="icon">🔒</span>
+            <input type="password" id="password" class="form-control"
+              placeholder="Minimum 6 characters" autocomplete="new-password" required minlength="6" />
+          </div>
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirm-password">Confirm Password</label>
+          <div class="input-icon">
+            <span class="icon">🔑</span>
+            <input type="password" id="confirm-password" class="form-control"
+              placeholder="Re-enter your password" autocomplete="new-password" required />
+          </div>
+          <span class="field-error" id="confirm-password-error"></span>
+        </div>
+
+        <!-- Password strength -->
+        <div id="password-strength-bar" style="display:none; margin-bottom:16px">
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px">
+            <span style="font-size:.78rem; color:var(--text-muted)">Password strength</span>
+            <span style="font-size:.78rem; font-weight:600" id="strength-label">–</span>
+          </div>
+          <div style="height:6px; background:var(--bg-alt); border-radius:var(--radius-pill); overflow:hidden">
+            <div id="strength-fill" style="height:100%; border-radius:var(--radius-pill); transition:all .3s; width:0"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full btn-lg" id="register-btn">Create Account</button>
+      </form>
+
+      <div class="auth-footer-text">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+
+      <p style="font-size:.75rem; color:var(--text-muted); text-align:center; margin-top:20px; line-height:1.6">
+        By creating an account, you acknowledge that DermaAI provides AI-assisted analysis for educational purposes only and is not a medical diagnostic service.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  if (window.innerWidth < 1024) {
+    document.getElementById("mobile-logo").style.display = "flex";
+  }
+  Auth.redirectIfLoggedIn();
+
+  // Password strength meter
+  const pwInput  = document.getElementById("password");
+  const strengthBar = document.getElementById("password-strength-bar");
+  const strengthFill = document.getElementById("strength-fill");
+  const strengthLabel = document.getElementById("strength-label");
+
+  pwInput.addEventListener("input", () => {
+    const val = pwInput.value;
+    strengthBar.style.display = val.length ? "block" : "none";
+    let score = 0;
+    if (val.length >= 6) score++;
+    if (val.length >= 10) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+    const levels = [
+      { label: "Very Weak", color: "#ef4444", width: "20%" },
+      { label: "Weak",      color: "#f97316", width: "40%" },
+      { label: "Fair",      color: "#f59e0b", width: "60%" },
+      { label: "Strong",    color: "#22c55e", width: "80%" },
+      { label: "Very Strong", color: "#16a34a", width: "100%" },
+    ];
+    const l = levels[Math.max(0, score - 1)] || levels[0];
+    strengthFill.style.background = l.color;
+    strengthFill.style.width = l.width;
+    strengthLabel.style.color = l.color;
+    strengthLabel.textContent = l.label;
+  });
+</script>
+</body>
+</html>

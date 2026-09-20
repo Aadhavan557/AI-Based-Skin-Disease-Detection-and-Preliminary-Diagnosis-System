@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – DermaAI</title>
+  <meta name="description" content="Get in touch with the DermaAI team or browse our frequently asked questions." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+      <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html"   class="nav-link">Home</a>
+      <a href="about.html"   class="nav-link">About</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="login.html"    class="btn btn-ghost btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="index.html"   class="nav-link">Home</a>
+  <a href="about.html"   class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <hr class="divider" />
+  <a href="login.html"    class="btn btn-outline w-full mb-8">Login</a>
+  <a href="register.html" class="btn btn-primary w-full">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section style="background:linear-gradient(155deg,var(--primary),var(--primary-dark)); padding:64px 0; text-align:center; color:#fff">
+  <div class="container">
+    <div class="section-label" style="background:rgba(255,255,255,.2); color:#fff; margin-bottom:20px; display:inline-flex">📬 Contact</div>
+    <h1 style="color:#fff; margin-bottom:12px">Get in Touch</h1>
+    <p style="opacity:.8; max-width:480px; margin:0 auto">Have a question, found a bug, or want to share feedback? We'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="gap:48px; align-items:start">
+
+      <!-- Contact Form -->
+      <div class="reveal">
+        <h3 style="margin-bottom:8px">Send Us a Message</h3>
+        <p style="color:var(--text-muted); margin-bottom:28px; font-size:.9rem">We typically respond within 24–48 hours. For urgent medical concerns, please contact your local medical service.</p>
+
+        <div class="contact-form-card">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="Your full name" required />
+              <span class="field-error" id="contact-name-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="you@example.com" required />
+              <span class="field-error" id="contact-email-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">Subject</label>
+              <select id="contact-subject" class="form-control">
+                <option value="">Select a subject…</option>
+                <option value="general">General Inquiry</option>
+                <option value="technical">Technical Issue</option>
+                <option value="feedback">Feedback & Suggestions</option>
+                <option value="academic">Academic / Research</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea id="contact-message" class="form-control" rows="5" placeholder="Describe your question or concern in detail…" required style="resize:vertical"></textarea>
+              <span class="field-error" id="contact-message-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-full" id="contact-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="reveal reveal-delay-1">
+
+        <!-- Contact Info -->
+        <div class="card mb-24">
+          <div class="card-body" style="padding:28px; display:flex; flex-direction:column; gap:20px">
+            <div style="display:flex; gap:14px; align-items:flex-start">
+              <div style="width:44px; height:44px; background:var(--primary-light); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0">🏫</div>
+              <div>
+                <h5 style="margin-bottom:4px">Academic Project</h5>
+                <p style="font-size:.875rem; color:var(--text-muted)">DermaAI is an AI-based skin disease detection final-year academic project built with FastAPI, PyTorch, and MongoDB Atlas.</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:14px; align-items:flex-start">
+              <div style="width:44px; height:44px; background:var(--primary-light); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0">⏰</div>
+              <div>
+                <h5 style="margin-bottom:4px">Response Time</h5>
+                <p style="font-size:.875rem; color:var(--text-muted)">We aim to respond to all inquiries within 24–48 hours during weekdays.</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:14px; align-items:flex-start">
+              <div style="width:44px; height:44px; background:var(--primary-light); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0">🔬</div>
+              <div>
+                <h5 style="margin-bottom:4px">Technical Support</h5>
+                <p style="font-size:.875rem; color:var(--text-muted)">For technical issues with the platform, please describe the problem in detail including your browser and steps to reproduce.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Alert -->
+        <div class="emergency-alert">
+          <span class="emergency-icon">🚨</span>
+          <div>
+            <h5 style="color:#b91c1c; margin-bottom:8px">Medical Emergency?</h5>
+            <p style="font-size:.875rem; color:#7f1d1d; line-height:1.6">
+              <strong>DermaAI is NOT an emergency service.</strong> For urgent or emergency medical concerns — including suspected melanoma, severe allergic reactions, or rapidly spreading conditions — contact your local emergency services immediately or visit the nearest hospital or clinic.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-top:72px">
+      <div class="text-center mb-32">
+        <div class="section-label" style="display:inline-flex">❓ FAQ</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div style="max-width:720px; margin:0 auto">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is DermaAI a replacement for a dermatologist?
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">No. DermaAI is an AI-powered educational tool that provides preliminary insights into visible skin conditions based on image analysis. It is absolutely not a replacement for a qualified dermatologist or healthcare professional. Always seek professional medical advice for any skin concern.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How accurate is the AI prediction?
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">The model was trained on a curated dermatological dataset and achieves high accuracy on its validation set. However, real-world accuracy depends heavily on image quality, lighting, skin tone, and whether the condition matches one of the 6 trained classes. Always treat results as preliminary.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is my image data private?
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">Yes. Your uploaded images and analysis results are stored securely and are accessible only through your authenticated account. We do not share your data with third parties. Images are stored on the server associated with your user account only.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What skin conditions can DermaAI detect?
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">DermaAI's model is trained to identify 6 classes: Acne, Eczema, Psoriasis, Melanoma, Ringworm, and Healthy Skin. It cannot reliably identify conditions outside these categories.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What image format should I use?
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">DermaAI accepts JPG, JPEG, PNG, and WebP images up to 10 MB. For best results, use a well-lit, clear, focused photograph of the affected skin area with the condition centered in the frame.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I download a report of my analysis?
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">Yes! After receiving your AI analysis result, you can download a professionally formatted PDF report containing your image, the predicted condition, confidence score, general information, and an important medical disclaimer. The report includes a reminder to consult a dermatologist.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo footer-logo">
+          <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+          <span>DermaAI</span>
+        </div>
+        <p class="footer-desc">AI-powered preliminary skin analysis for educational purposes.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Platform</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="register.html">Get Started</a>
+          <a href="login.html">Sign In</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Learn</p>
+        <div class="footer-links">
+          <a href="about.html">About DermaAI</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Legal</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Medical Disclaimer</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-disclaimer">⚠️ DermaAI is NOT a medical device. All results are for educational purposes only. Always consult a qualified healthcare professional.</p>
+    <div class="footer-bottom">
+      <span>© 2026 DermaAI. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  window.addEventListener("scroll", () => {
+    document.getElementById("site-header").classList.toggle("scrolled", window.scrollY > 16);
+  });
+  document.getElementById("hamburger").addEventListener("click", () => {
+    document.getElementById("hamburger").classList.toggle("open");
+    document.getElementById("mobile-menu").classList.toggle("open");
+  });
+
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    btn.classList.toggle("open");
+    answer.classList.toggle("open");
+  }
+
+  document.getElementById("contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    clearAllErrors();
+    const name    = document.getElementById("contact-name").value.trim();
+    const email   = document.getElementById("contact-email").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+    let valid = true;
+    if (!name)    { setFieldError("contact-name", "Name is required."); valid = false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setFieldError("contact-email", "Valid email required."); valid = false; }
+    if (!message) { setFieldError("contact-message", "Please enter a message."); valid = false; }
+    if (!valid) return;
+    const btn = document.getElementById("contact-btn");
+    setButtonLoading(btn, true, "Sending…");
+    setTimeout(() => {
+      setButtonLoading(btn, false);
+      document.getElementById("contact-form").reset();
+      showToast("Message received! We'll get back to you shortly. 🙏", "success", 5000);
+    }, 1400);
+  });
+</script>
+</body>
+</html>

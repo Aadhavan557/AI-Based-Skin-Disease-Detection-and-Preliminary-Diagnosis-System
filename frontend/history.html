@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediction History – DermaAI</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="sidebar-label">Main Menu</p>
+      <a href="dashboard.html" class="sidebar-link"><span class="link-icon">🏠</span> Dashboard</a>
+      <a href="analyze.html"   class="sidebar-link"><span class="link-icon">🔬</span> Analyze Skin</a>
+      <a href="history.html"   class="sidebar-link active"><span class="link-icon">📋</span> Prediction History</a>
+      <a href="profile.html"   class="sidebar-link"><span class="link-icon">👤</span> My Profile</a>
+      <p class="sidebar-label" style="margin-top:24px">Support</p>
+      <a href="about.html"   class="sidebar-link"><span class="link-icon">ℹ️</span> About</a>
+      <a href="contact.html" class="sidebar-link"><span class="link-icon">📬</span> Contact</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" onclick="Auth.logout()">
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary)">A</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username user-display-name">Loading…</div>
+          <div class="sidebar-role text-muted fs-sm">Sign Out →</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+    <div class="app-topbar">
+      <div style="display:flex; align-items:center; gap:14px">
+        <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <div>
+          <h4 style="font-size:1rem; font-weight:700">Prediction History</h4>
+          <p style="font-size:.8rem; color:var(--text-muted)">All your previous skin analyses</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="analyze.html" class="btn btn-primary btn-sm">+ New Analysis</a>
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary);cursor:pointer" onclick="window.location='profile.html'">A</div>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <div class="page-title">
+        <h2>Analysis History</h2>
+        <p>All previous AI-assisted skin analyses from your account.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-body" style="padding:16px">
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center">
+            <div style="flex:1; min-width:200px; display:flex; align-items:center; gap:8px; background:var(--bg-alt); border-radius:var(--radius-pill); padding:8px 16px">
+              <span>🔍</span>
+              <input type="text" id="history-search" placeholder="Search by condition…" style="border:none; background:none; outline:none; font-size:.9rem; flex:1" />
+            </div>
+            <select id="history-filter" class="form-control" style="width:auto; padding:8px 12px">
+              <option value="">All Conditions</option>
+              <option value="Acne">Acne</option>
+              <option value="Eczema">Eczema</option>
+              <option value="Psoriasis">Psoriasis</option>
+              <option value="Melanoma">Melanoma</option>
+              <option value="Ringworm">Ringworm</option>
+              <option value="Healthy Skin">Healthy Skin</option>
+            </select>
+            <select id="history-sort" class="form-control" style="width:auto; padding:8px 12px">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="confidence-high">Highest Confidence</option>
+              <option value="confidence-low">Lowest Confidence</option>
+            </select>
+            <span style="font-size:.875rem; color:var(--text-muted)"><span id="result-count">0</span> results</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="card" style="overflow:hidden">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Image</th>
+              <th>Predicted Condition</th>
+              <th>Confidence</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr>
+              <td colspan="5" style="text-align:center; padding:40px; color:var(--text-muted)">
+                <div class="loading-spinner" style="width:32px;height:32px;margin:0 auto 12px;border-width:3px"></div>
+                Loading history…
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state" style="display:none">
+        <div class="empty-icon">🔬</div>
+        <h3>No analyses found</h3>
+        <p>Start your first AI skin analysis to see your history here.</p>
+        <a href="analyze.html" class="btn btn-primary">Analyze Your Skin Now</a>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

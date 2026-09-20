@@ -1,0 +1,29 @@
+{
+  "total_images": 27153,
+  "readable_images": 27153,
+  "corrupted_images": 0,
+  "num_classes": 10,
+  "classes": {
+    "5. Melanocytic Nevi (NV) - 7970": 7970,
+    "4. Basal Cell Carcinoma (BCC) 3323": 3323,
+    "2. Melanoma 15.75k": 3140,
+    "10. Warts Molluscum and other Viral Infections - 2103": 2103,
+    "6. Benign Keratosis-like Lesions (BKL) 2624": 2079,
+    "7. Psoriasis pictures Lichen Planus and related diseases - 2k": 2055,
+    "8. Seborrheic Keratoses and other Benign Tumors - 1.8k": 1847,
+    "9. Tinea Ringworm Candidiasis and other Fungal Infections - 1.7k": 1702,
+    "1. Eczema 1677": 1677,
+    "3. Atopic Dermatitis - 1.25k": 1257
+  },
+  "format_distribution": {
+    ".jpg": 27153
+  },
+  "image_size": {
+    "min_width": 294,
+    "max_width": 1024,
+    "mean_width": 678.8272014142084,
+    "min_height": 222,
+    "max_height": 1128,
+    "mean_height": 569.9176149965014
+  }
+}

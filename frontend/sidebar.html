@@ -1,0 +1,49 @@
+<!-- ── Reusable Sidebar + Topbar HTML (Shared across all dashboard pages) ── -->
+<!-- Include this snippet at the top of every dashboard page -->
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav">
+    <p class="sidebar-label">Main Menu</p>
+    <a href="dashboard.html" class="sidebar-link" data-page="dashboard">
+      <span class="link-icon">🏠</span> Dashboard
+    </a>
+    <a href="analyze.html" class="sidebar-link" data-page="analyze">
+      <span class="link-icon">🔬</span> Analyze Skin
+    </a>
+    <a href="history.html" class="sidebar-link" data-page="history">
+      <span class="link-icon">📋</span> Prediction History
+    </a>
+    <a href="profile.html" class="sidebar-link" data-page="profile">
+      <span class="link-icon">👤</span> My Profile
+    </a>
+
+    <p class="sidebar-label" style="margin-top:24px">Support</p>
+    <a href="about.html" class="sidebar-link">
+      <span class="link-icon">ℹ️</span> About DermaAI
+    </a>
+    <a href="contact.html" class="sidebar-link">
+      <span class="link-icon">📬</span> Contact
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-user" onclick="Auth.logout()">
+      <div class="avatar user-avatar-initial">A</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-username user-display-name">User</div>
+        <div class="sidebar-role">Click to Sign Out</div>
+      </div>
+      <span style="color:var(--text-muted); font-size:.9rem">↪</span>
+    </div>
+  </div>
+</aside>

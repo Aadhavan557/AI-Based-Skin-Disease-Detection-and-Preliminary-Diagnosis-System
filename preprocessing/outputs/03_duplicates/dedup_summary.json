@@ -1,0 +1,11 @@
+{
+  "run_timestamp": "2026-07-26T22:07:28.400317",
+  "dry_run": false,
+  "hash_threshold": 8,
+  "hash_size": 16,
+  "total_scanned": 27153,
+  "hashed_successfully": 27153,
+  "duplicate_groups": 643,
+  "duplicates_removed": 686,
+  "unique_remaining": 26467
+}

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DermaAI – AI-Powered Skin Disease Detection</title>
+  <meta name="description" content="DermaAI uses advanced deep learning to provide preliminary AI-assisted skin analysis. Upload a photo and receive instant insights." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+  HEADER
+═══════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <span>Derma<span style="color:var(--text-muted); font-weight:400">AI</span></span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#hero"       class="nav-link active">Home</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#conditions"   class="nav-link">Skin Conditions</a>
+      <a href="about.html"    class="nav-link">About</a>
+      <a href="contact.html"  class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="login.html"    class="btn btn-ghost btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="#hero"         class="nav-link">Home</a>
+  <a href="#how-it-works" class="nav-link">How It Works</a>
+  <a href="#conditions"   class="nav-link">Skin Conditions</a>
+  <a href="about.html"    class="nav-link">About</a>
+  <a href="contact.html"  class="nav-link">Contact</a>
+  <hr class="divider" />
+  <a href="login.html"    class="btn btn-outline w-full" style="margin-bottom:8px">Login</a>
+  <a href="register.html" class="btn btn-primary w-full">Get Started</a>
+</nav>
+
+<!-- ════════════════════════════════════════
+  HERO
+═══════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Text -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">AI-Assisted Dermatology Analysis</div>
+        <h1>AI-Powered<br /><span>Skin Health</span> Analysis</h1>
+        <p class="hero-sub">
+          Upload a skin image and receive an AI-powered preliminary analysis with confidence insights, helpful information, and guidance on when to consult a dermatologist.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary btn-lg">
+            <span>🔬</span> Analyze Your Skin
+          </a>
+          <a href="#how-it-works" class="btn btn-outline btn-lg">How It Works</a>
+        </div>
+        <div class="trust-indicators">
+          <span class="trust-item">AI-assisted analysis</span>
+          <span class="trust-item">Secure image handling</span>
+          <span class="trust-item">Private patient history</span>
+          <span class="trust-item">Dermatologist consultation recommended</span>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero-visual">
+        <div class="hero-image-container">
+          <img src="assets/hero_dermatology.png" alt="Dermatology AI Analysis" class="hero-main-image" />
+
+          <!-- Floating analysis card -->
+          <div class="hero-ai-card">
+            <div class="hero-card-top">
+              <div class="hero-card-dot"></div>
+              <div>
+                <div class="hero-card-title">AI Analysis</div>
+                <div class="hero-card-subtitle">Image processed</div>
+              </div>
+            </div>
+            <div class="hero-card-bar">
+              <div class="hero-card-fill" style="width:96.4%"></div>
+            </div>
+            <div class="hero-confidence">
+              <span>Confidence Score</span>
+              <strong>96.4%</strong>
+            </div>
+          </div>
+
+          <!-- Top badge -->
+          <div class="hero-badge">
+            <div class="hero-badge-number">98%</div>
+            <div class="hero-badge-label">Accuracy on<br/>validation set</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  STATS BAR
+═══════════════════════════════════════════ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num">6+</div>
+        <div class="stat-txt">Skin Conditions Detected</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-num">98%</div>
+        <div class="stat-txt">Model Validation Accuracy</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-num">&lt;3s</div>
+        <div class="stat-txt">Average Analysis Time</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="stat-num">100%</div>
+        <div class="stat-txt">Private &amp; Secure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  HOW IT WORKS
+═══════════════════════════════════════════ -->
+<section class="section" id="how-it-works" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="text-center mb-32">
+      <div class="section-label" style="display:inline-flex">⚙️ Process</div>
+      <h2 class="section-title">How DermaAI Works</h2>
+      <p class="section-subtitle" style="margin:0 auto">Four simple steps from image upload to informed health insights.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number">01</div>
+        <div class="step-icon">📷</div>
+        <div class="step-title">Upload</div>
+        <p class="step-desc">Upload a clear, well-lit photograph of the affected skin area using your device's camera or gallery.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-number">02</div>
+        <div class="step-icon">🤖</div>
+        <div class="step-title">AI Analysis</div>
+        <p class="step-desc">Our deep learning model, trained on thousands of dermatological images, analyzes visual patterns in your image.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-number">03</div>
+        <div class="step-icon">📊</div>
+        <div class="step-title">View Results</div>
+        <p class="step-desc">Receive the predicted condition name, confidence score, general information, and top alternative predictions.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-number">04</div>
+        <div class="step-icon">🩺</div>
+        <div class="step-title">Take the Next Step</div>
+        <p class="step-desc">Review general care information and consider consulting a qualified dermatologist for proper diagnosis and treatment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  SKIN CONDITIONS
+═══════════════════════════════════════════ -->
+<section class="section" id="conditions">
+  <div class="container">
+    <div class="text-center mb-32">
+      <div class="section-label" style="display:inline-flex">🔬 Detection</div>
+      <h2 class="section-title">Detectable Skin Conditions</h2>
+      <p class="section-subtitle" style="margin:0 auto">DermaAI's model has been trained to recognize the following conditions. Results are preliminary and for informational purposes only.</p>
+    </div>
+
+    <div class="grid-3" id="conditions-grid">
+
+      <!-- Acne -->
+      <div class="condition-card reveal">
+        <div class="condition-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a); display:flex; align-items:center; justify-content:center; font-size:5rem;">🧴</div>
+        <div class="condition-body">
+          <div class="badge badge-warning mb-8">Common</div>
+          <h3 class="condition-name">Acne Vulgaris</h3>
+          <p class="condition-desc">A skin condition that occurs when hair follicles become plugged with oil and dead skin cells, causing whiteheads, blackheads, or pimples.</p>
+          <div class="condition-signs">
+            <span class="condition-sign">Pimples</span>
+            <span class="condition-sign">Blackheads</span>
+            <span class="condition-sign">Redness</span>
+            <span class="condition-sign">Inflammation</span>
+          </div>
+          <a href="register.html" class="btn btn-outline btn-sm">Analyze Image →</a>
+        </div>
+      </div>
+
+      <!-- Eczema -->
+      <div class="condition-card reveal reveal-delay-1">
+        <div class="condition-img" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe); display:flex; align-items:center; justify-content:center; font-size:5rem;">🩹</div>
+        <div class="condition-body">
+          <div class="badge badge-info mb-8">Chronic</div>
+          <h3 class="condition-name">Eczema</h3>
+          <p class="condition-desc">A group of inflammatory skin conditions that cause itching, redness, and rough patches. Also known as atopic dermatitis.</p>
+          <div class="condition-signs">
+            <span class="condition-sign">Itching</span>
+            <span class="condition-sign">Dry Skin</span>
+            <span class="condition-sign">Rash</span>
+            <span class="condition-sign">Flaking</span>
+          </div>
+          <a href="register.html" class="btn btn-outline btn-sm">Analyze Image →</a>
+        </div>
+      </div>
+
+      <!-- Psoriasis -->
+      <div class="condition-card reveal reveal-delay-2">
+        <div class="condition-img" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe); display:flex; align-items:center; justify-content:center; font-size:5rem;">🔴</div>
+        <div class="condition-body">
+          <div class="badge badge-danger mb-8">Autoimmune</div>
+          <h3 class="condition-name">Psoriasis</h3>
+          <p class="condition-desc">An autoimmune condition that causes rapid buildup of skin cells, resulting in scaling, redness, and discomfort on the skin surface.</p>
+          <div class="condition-signs">
+            <span class="condition-sign">Scaly Patches</span>
+            <span class="condition-sign">Silvery Scales</span>
+            <span class="condition-sign">Cracking</span>
+            <span class="condition-sign">Burning</span>
+          </div>
+          <a href="register.html" class="btn btn-outline btn-sm">Analyze Image →</a>
+        </div>
+      </div>
+
+      <!-- Melanoma -->
+      <div class="condition-card reveal">
+        <div class="condition-img" style="background:linear-gradient(135deg,#fee2e2,#fca5a5); display:flex; align-items:center; justify-content:center; font-size:5rem;">⚠️</div>
+        <div class="condition-body">
+          <div class="badge badge-danger mb-8">Serious — Seek Care</div>
+          <h3 class="condition-name">Melanoma</h3>
+          <p class="condition-desc">The most serious type of skin cancer. Develops in the cells (melanocytes) that produce melanin. Early detection is critical.</p>
+          <div class="condition-signs">
+            <span class="condition-sign">Irregular Mole</span>
+            <span class="condition-sign">Color Change</span>
+            <span class="condition-sign">Asymmetry</span>
+            <span class="condition-sign">Size Change</span>
+          </div>
+          <a href="register.html" class="btn btn-outline btn-sm">Analyze Image →</a>
+        </div>
+      </div>
+
+      <!-- Ringworm -->
+      <div class="condition-card reveal reveal-delay-1">
+        <div class="condition-img" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0); display:flex; align-items:center; justify-content:center; font-size:5rem;">🔵</div>
+        <div class="condition-body">
+          <div class="badge badge-warning mb-8">Fungal</div>
+          <h3 class="condition-name">Ringworm (Tinea)</h3>
+          <p class="condition-desc">A common fungal infection of the skin, not an actual worm. Causes a red, circular, itchy rash with clearer skin in the middle.</p>
+          <div class="condition-signs">
+            <span class="condition-sign">Ring Shape</span>
+            <span class="condition-sign">Scaly Border</span>
+            <span class="condition-sign">Itching</span>
+            <span class="condition-sign">Redness</span>
+          </div>
+          <a href="register.html" class="btn btn-outline btn-sm">Analyze Image →</a>
+        </div>
+      </div>
+
+      <!-- Healthy Skin -->
+      <div class="condition-card reveal reveal-delay-2">
+        <div class="condition-img" style="background:linear-gradient(135deg,#e6f4f0,#c7e9df); display:flex; align-items:center; justify-content:center; font-size:5rem;">✅</div>
+        <div class="condition-body">
+          <div class="badge badge-success mb-8">Normal</div>
+          <h3 class="condition-name">Healthy Skin</h3>
+          <p class="condition-desc">Normal, healthy skin with no significant dermatological conditions detected. The model can identify when skin appears healthy and normal.</p>
+          <div class="condition-signs">
+            <span class="condition-sign">Even Tone</span>
+            <span class="condition-sign">Smooth Texture</span>
+            <span class="condition-sign">No Lesions</span>
+            <span class="condition-sign">Normal</span>
+          </div>
+          <a href="register.html" class="btn btn-outline btn-sm">Check Your Skin →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer-box mt-32">
+      <span class="disclaimer-icon">⚠️</span>
+      <p class="disclaimer-text">
+        <strong>Important Medical Disclaimer:</strong> DermaAI is an AI-assisted tool designed for educational and preliminary informational purposes only. Results do not constitute a medical diagnosis and should not replace professional medical advice. Always consult a qualified dermatologist or healthcare professional for proper evaluation, diagnosis, and treatment.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  CTA SECTION
+═══════════════════════════════════════════ -->
+<section class="section" style="background:linear-gradient(155deg, var(--primary-dark), #042d22); text-align:center;">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label" style="background:rgba(255,255,255,.15); color:#fff; margin-bottom:20px">🚀 Get Started</div>
+      <h2 style="color:#fff; margin-bottom:16px">Ready to Analyze Your Skin?</h2>
+      <p style="color:rgba(255,255,255,.75); max-width:520px; margin:0 auto 36px; font-size:1.05rem;">Create your free account in seconds and begin your AI-assisted skin health journey today.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+        <a href="register.html" class="btn btn-lg" style="background:#fff; color:var(--primary); box-shadow:0 4px 20px rgba(0,0,0,.3)">Create Free Account</a>
+        <a href="login.html"    class="btn btn-lg btn-outline" style="border-color:rgba(255,255,255,.5); color:#fff">Sign In</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  FOOTER
+═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo footer-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <span>DermaAI</span>
+        </div>
+        <p class="footer-desc">AI-powered preliminary skin analysis platform. Not a substitute for professional medical advice.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Platform</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="register.html">Get Started</a>
+          <a href="login.html">Sign In</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Resources</p>
+        <div class="footer-links">
+          <a href="#how-it-works">How It Works</a>
+          <a href="#conditions">Skin Conditions</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Legal</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Medical Disclaimer</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-disclaimer">⚠️ DermaAI provides AI-generated preliminary analyses for informational purposes only. This platform is NOT a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or a qualified dermatologist.</p>
+    <div class="footer-bottom">
+      <span>© 2026 DermaAI. All rights reserved.</span>
+      <span style="color:rgba(255,255,255,.45)">Built with ❤️ for better skin health awareness</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Sticky header shadow
+  window.addEventListener("scroll", () => {
+    document.getElementById("site-header").classList.toggle("scrolled", window.scrollY > 16);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    mobileMenu.classList.toggle("open");
+  });
+  // Close on link click
+  mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    hamburger.classList.remove("open");
+    mobileMenu.classList.remove("open");
+  }));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks  = document.querySelectorAll(".nav-link");
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY + 100;
+    sections.forEach(sec => {
+      if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
+        navLinks.forEach(l => l.classList.remove("active"));
+        document.querySelectorAll(`.nav-link[href="#${sec.id}"]`).forEach(l => l.classList.add("active"));
+      }
+    });
+  });
+</script>
+</body>
+</html>

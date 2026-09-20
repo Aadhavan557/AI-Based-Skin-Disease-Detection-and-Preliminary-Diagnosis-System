@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile – DermaAI</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="sidebar-label">Main Menu</p>
+      <a href="dashboard.html" class="sidebar-link"><span class="link-icon">🏠</span> Dashboard</a>
+      <a href="analyze.html"   class="sidebar-link"><span class="link-icon">🔬</span> Analyze Skin</a>
+      <a href="history.html"   class="sidebar-link"><span class="link-icon">📋</span> Prediction History</a>
+      <a href="profile.html"   class="sidebar-link active"><span class="link-icon">👤</span> My Profile</a>
+      <p class="sidebar-label" style="margin-top:24px">Support</p>
+      <a href="about.html"   class="sidebar-link"><span class="link-icon">ℹ️</span> About</a>
+      <a href="contact.html" class="sidebar-link"><span class="link-icon">📬</span> Contact</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" onclick="Auth.logout()">
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary)">A</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username user-display-name">Loading…</div>
+          <div class="sidebar-role text-muted fs-sm">Sign Out →</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+    <div class="app-topbar">
+      <div style="display:flex; align-items:center; gap:14px">
+        <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <h4 style="font-size:1rem; font-weight:700">My Profile</h4>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure you want to sign out?')) Auth.logout()">Sign Out</button>
+      </div>
+    </div>
+
+    <div class="app-content">
+
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile-avatar-lg user-avatar-initial">A</div>
+        <div class="profile-info">
+          <h2 class="user-display-name">Loading…</h2>
+          <p class="user-email" style="opacity:.8">–</p>
+          <div class="profile-meta">
+            <span>🔬 <span id="profile-analyses">–</span> Analyses</span>
+            <span>📅 Joined <span id="profile-joined">–</span></span>
+            <span>🛡️ Active Account</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="align-items:start; gap:24px">
+
+        <!-- Account Info -->
+        <div class="card">
+          <div class="card-header"><h5>👤 Account Information</h5></div>
+          <div class="card-body" style="padding:24px">
+            <div class="form-group">
+              <label class="form-label">Username</label>
+              <input class="form-control user-display-name" value="–" readonly style="background:var(--bg-alt)" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input class="form-control user-email" value="–" readonly style="background:var(--bg-alt)" />
+            </div>
+            <div class="form-group mb-0">
+              <label class="form-label">Account ID</label>
+              <input class="form-control" id="profile-user-id" value="–" readonly style="background:var(--bg-alt); font-family:monospace; font-size:.8rem" />
+            </div>
+          </div>
+          <div class="card-footer">
+            <p style="font-size:.8rem; color:var(--text-muted)">Profile editing will be available in a future update.</p>
+          </div>
+        </div>
+
+        <!-- Security & Actions -->
+        <div style="display:flex; flex-direction:column; gap:20px">
+
+          <div class="card">
+            <div class="card-header"><h5>🔐 Security</h5></div>
+            <div class="card-body" style="padding:24px">
+              <p style="font-size:.875rem; color:var(--text-muted); margin-bottom:20px">Your account is secured with a hashed password. We never store your password in plain text.</p>
+              <div style="display:flex; align-items:center; gap:12px; padding:14px; background:var(--primary-50); border-radius:var(--radius); margin-bottom:16px">
+                <span style="font-size:1.2rem">🛡️</span>
+                <div style="font-size:.875rem">
+                  <div style="font-weight:600; color:var(--primary)">JWT Authentication Active</div>
+                  <div style="color:var(--text-muted)">Your session is secured with JSON Web Token</div>
+                </div>
+              </div>
+              <button class="btn btn-outline w-full" onclick="showToast('Password change coming soon!','info')">🔑 Change Password</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><h5>📊 Quick Stats</h5></div>
+            <div class="card-body" style="padding:20px; display:flex; flex-direction:column; gap:14px">
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid var(--border)">
+                <span style="font-size:.875rem; color:var(--text-muted)">Total Analyses</span>
+                <strong id="profile-stat-total">–</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid var(--border)">
+                <span style="font-size:.875rem; color:var(--text-muted)">Average Confidence</span>
+                <strong id="profile-stat-avg">–</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center">
+                <span style="font-size:.875rem; color:var(--text-muted)">Most Recent Prediction</span>
+                <strong id="profile-stat-recent">–</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="border-color:#fee2e2">
+            <div class="card-body" style="padding:20px">
+              <h5 style="color:var(--danger); margin-bottom:12px">⚠️ Danger Zone</h5>
+              <p style="font-size:.875rem; color:var(--text-muted); margin-bottom:16px">Signing out will clear your session. Your data is safely stored in the cloud.</p>
+              <button class="btn btn-danger w-full" onclick="if(confirm('Sign out of DermaAI?')) Auth.logout()">Sign Out of DermaAI</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  if (!Auth.requireAuth()) return;
+  const user = Auth.getUser();
+  if (user) {
+    document.querySelectorAll(".user-display-name").forEach(el => {
+      if (el.tagName === "INPUT") el.value = user.username;
+      else el.textContent = user.username;
+    });
+    document.querySelectorAll(".user-avatar-initial").forEach(el => el.textContent = user.username.charAt(0).toUpperCase());
+    document.querySelectorAll(".user-email").forEach(el => {
+      if (el.tagName === "INPUT") el.value = user.email || "–";
+      else el.textContent = user.email || "–";
+    });
+    const idEl = document.getElementById("profile-user-id");
+    if (idEl) idEl.value = user.id || "–";
+  }
+
+  const history = await API.getHistory();
+  const totalEl  = document.getElementById("profile-stat-total");
+  const avgEl    = document.getElementById("profile-stat-avg");
+  const recentEl = document.getElementById("profile-stat-recent");
+  const analysesEl = document.getElementById("profile-analyses");
+
+  if (totalEl) totalEl.textContent = history.length;
+  if (analysesEl) analysesEl.textContent = history.length;
+  if (avgEl && history.length > 0) {
+    const avg = history.reduce((s,p) => s + (p.confidence || 0), 0) / history.length;
+    avgEl.textContent = (avg * 100).toFixed(1) + "%";
+  } else if (avgEl) avgEl.textContent = "–";
+  if (recentEl && history.length > 0) recentEl.textContent = history[0].predicted_class || "–";
+  else if (recentEl) recentEl.textContent = "None yet";
+});
+</script>
+</body>
+</html>

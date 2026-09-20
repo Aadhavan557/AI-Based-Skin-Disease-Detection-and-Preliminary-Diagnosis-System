@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About DermaAI – AI-Powered Skin Disease Detection</title>
+  <meta name="description" content="Learn how DermaAI uses deep learning and transfer learning to provide AI-assisted preliminary skin health analysis." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+      <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html"   class="nav-link">Home</a>
+      <a href="about.html"   class="nav-link active">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="login.html"    class="btn btn-ghost btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="index.html"   class="nav-link">Home</a>
+  <a href="about.html"   class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <hr class="divider" />
+  <a href="login.html"    class="btn btn-outline w-full mb-8">Login</a>
+  <a href="register.html" class="btn btn-primary w-full">Get Started</a>
+</nav>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+  <div class="container" style="padding:0 24px">
+    <div class="section-label" style="background:rgba(255,255,255,.2); color:#fff; margin-bottom:20px; display:inline-flex">ℹ️ About Us</div>
+    <h1>About <span>DermaAI</span></h1>
+    <p>Empowering people with AI-assisted skin health awareness through cutting-edge deep learning technology.</p>
+  </div>
+</section>
+
+<!-- WHAT IS DERMAAI -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items:center; gap:64px">
+      <div class="reveal">
+        <div class="section-label">🔬 Our Mission</div>
+        <h2>What is DermaAI?</h2>
+        <p style="margin-bottom:16px">DermaAI is an AI-powered preliminary skin analysis platform designed to help users better understand their skin health. By leveraging advanced deep learning and computer vision, we provide fast, accessible, and preliminary insights into visible skin conditions.</p>
+        <p style="margin-bottom:16px">Our platform is built as an academic and educational tool — a demonstration of how modern AI can assist in healthcare awareness, while always emphasizing the irreplaceable role of qualified medical professionals.</p>
+        <p><strong>DermaAI does not provide medical diagnoses.</strong> Every result is clearly marked as preliminary and for educational purposes only.</p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+          <div class="about-card" style="text-align:center; padding:28px 20px">
+            <div style="font-size:2.5rem; margin-bottom:10px">🧠</div>
+            <h4>Deep Learning</h4>
+            <p style="font-size:.875rem; color:var(--text-muted)">Convolutional neural networks trained on dermatological datasets</p>
+          </div>
+          <div class="about-card" style="text-align:center; padding:28px 20px">
+            <div style="font-size:2.5rem; margin-bottom:10px">🔄</div>
+            <h4>Transfer Learning</h4>
+            <p style="font-size:.875rem; color:var(--text-muted)">Pre-trained architectures fine-tuned on skin condition data</p>
+          </div>
+          <div class="about-card" style="text-align:center; padding:28px 20px">
+            <div style="font-size:2.5rem; margin-bottom:10px">🔒</div>
+            <h4>Privacy First</h4>
+            <p style="font-size:.875rem; color:var(--text-muted)">Secure image handling with account-based private history</p>
+          </div>
+          <div class="about-card" style="text-align:center; padding:28px 20px">
+            <div style="font-size:2.5rem; margin-bottom:10px">⚡</div>
+            <h4>Fast Analysis</h4>
+            <p style="font-size:.875rem; color:var(--text-muted)">Results in under 3 seconds from image upload</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="text-center mb-32">
+      <div class="section-label" style="display:inline-flex">⚙️ Technology</div>
+      <h2>How the AI Works</h2>
+      <p class="section-subtitle" style="margin:0 auto">Our model uses state-of-the-art deep learning techniques for visual skin pattern recognition.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="about-card reveal">
+        <h3>🖼️ Computer Vision</h3>
+        <p style="font-size:.9rem; color:var(--text-muted); line-height:1.7">The model processes the uploaded image as a multi-dimensional tensor of pixel values. It identifies spatial patterns, textures, colors, and structural features in the skin image.</p>
+      </div>
+      <div class="about-card reveal reveal-delay-1">
+        <h3>🧬 Convolutional Neural Network</h3>
+        <p style="font-size:.9rem; color:var(--text-muted); line-height:1.7">A deep Convolutional Neural Network (CNN) extracts hierarchical visual features — from edges and textures in early layers to complex skin patterns in deeper layers.</p>
+      </div>
+      <div class="about-card reveal reveal-delay-2">
+        <h3>🔄 Transfer Learning</h3>
+        <p style="font-size:.9rem; color:var(--text-muted); line-height:1.7">The model uses transfer learning from established architectures pre-trained on ImageNet, then fine-tuned on a dermatological dataset to specialize in skin condition recognition.</p>
+      </div>
+      <div class="about-card reveal">
+        <h3>📊 Confidence Scoring</h3>
+        <p style="font-size:.9rem; color:var(--text-muted); line-height:1.7">The model's final layer uses Softmax activation to output probability distributions across all classes. The highest probability becomes the predicted class with an associated confidence score.</p>
+      </div>
+      <div class="about-card reveal reveal-delay-1">
+        <h3>🗂️ Training Dataset</h3>
+        <p style="font-size:.9rem; color:var(--text-muted); line-height:1.7">The model was trained on a curated dataset of labeled dermatological images across 6 classes. Data augmentation techniques were applied to improve generalization and robustness.</p>
+      </div>
+      <div class="about-card reveal reveal-delay-2">
+        <h3>🌡️ GradCAM Visualization</h3>
+        <p style="font-size:.9rem; color:var(--text-muted); line-height:1.7">Gradient-weighted Class Activation Mapping (Grad-CAM) highlights the regions of the image that most influenced the model's prediction, providing visual explainability.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:32px">
+      <p class="section-subtitle" style="margin:0 auto 20px">Technology Stack</p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px">
+        <span class="tech-pill">🐍 Python</span>
+        <span class="tech-pill">🔥 PyTorch</span>
+        <span class="tech-pill">⚡ FastAPI</span>
+        <span class="tech-pill">🍃 MongoDB Atlas</span>
+        <span class="tech-pill">🖥️ HTML / CSS / JS</span>
+        <span class="tech-pill">🧠 Deep Learning</span>
+        <span class="tech-pill">📈 Transfer Learning</span>
+        <span class="tech-pill">🌐 REST API</span>
+        <span class="tech-pill">🔒 JWT Auth</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIMITATIONS -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-32">
+      <div class="section-label" style="display:inline-flex">⚠️ Limitations</div>
+      <h2>Important Limitations</h2>
+    </div>
+    <div class="grid-2" style="gap:24px">
+      <div class="disclaimer-box reveal" style="display:flex">
+        <span class="disclaimer-icon">🤖</span>
+        <div>
+          <h5 style="color:#92400e; margin-bottom:8px">AI is Not a Doctor</h5>
+          <p class="disclaimer-text">DermaAI uses pattern recognition, not medical judgment. It cannot account for patient history, symptoms, duration, or physical examination findings that a trained dermatologist would assess.</p>
+        </div>
+      </div>
+      <div class="disclaimer-box reveal reveal-delay-1" style="display:flex">
+        <span class="disclaimer-icon">📷</span>
+        <div>
+          <h5 style="color:#92400e; margin-bottom:8px">Image Quality Matters</h5>
+          <p class="disclaimer-text">The quality of the uploaded image significantly affects prediction accuracy. Blurry, poorly lit, or obstructed images may lead to incorrect or low-confidence predictions.</p>
+        </div>
+      </div>
+      <div class="disclaimer-box reveal" style="display:flex">
+        <span class="disclaimer-icon">🎯</span>
+        <div>
+          <h5 style="color:#92400e; margin-bottom:8px">Limited to Trained Classes</h5>
+          <p class="disclaimer-text">The model can only identify conditions it was trained on (Acne, Eczema, Psoriasis, Melanoma, Ringworm, Healthy Skin). Other conditions may be misclassified.</p>
+        </div>
+      </div>
+      <div class="disclaimer-box reveal reveal-delay-1" style="display:flex">
+        <span class="disclaimer-icon">🏥</span>
+        <div>
+          <h5 style="color:#92400e; margin-bottom:8px">Always Seek Professional Care</h5>
+          <p class="disclaimer-text">No AI prediction should delay or replace seeking professional medical care. For any serious, persistent, or worsening skin condition, always consult a qualified dermatologist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo footer-logo">
+          <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+          <span>DermaAI</span>
+        </div>
+        <p class="footer-desc">AI-powered preliminary skin analysis for educational and informational purposes.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Platform</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="register.html">Get Started</a>
+          <a href="login.html">Sign In</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Learn</p>
+        <div class="footer-links">
+          <a href="about.html">About DermaAI</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Legal</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Medical Disclaimer</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-disclaimer">⚠️ DermaAI is NOT a medical device and does not provide medical diagnoses. All AI analyses are for educational and informational purposes only. Always consult a qualified healthcare professional.</p>
+    <div class="footer-bottom">
+      <span>© 2026 DermaAI. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  window.addEventListener("scroll", () => {
+    document.getElementById("site-header").classList.toggle("scrolled", window.scrollY > 16);
+  });
+  document.getElementById("hamburger").addEventListener("click", () => {
+    document.getElementById("hamburger").classList.toggle("open");
+    document.getElementById("mobile-menu").classList.toggle("open");
+  });
+</script>
+</body>
+</html>

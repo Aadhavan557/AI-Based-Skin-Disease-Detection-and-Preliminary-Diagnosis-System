@@ -1,0 +1,8 @@
+{
+  "run_timestamp": "2026-07-26T21:51:04.992866",
+  "dry_run": false,
+  "total_scanned": 27153,
+  "healthy": 27153,
+  "corrupted_removed": 0,
+  "quarantine_dir": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\preprocessing\\quarantine\\corrupted"
+}

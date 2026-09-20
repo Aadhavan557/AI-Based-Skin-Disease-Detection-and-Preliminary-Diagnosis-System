@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analysis Result – DermaAI</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="sidebar-label">Main Menu</p>
+      <a href="dashboard.html" class="sidebar-link"><span class="link-icon">🏠</span> Dashboard</a>
+      <a href="analyze.html"   class="sidebar-link active"><span class="link-icon">🔬</span> Analyze Skin</a>
+      <a href="history.html"   class="sidebar-link"><span class="link-icon">📋</span> Prediction History</a>
+      <a href="profile.html"   class="sidebar-link"><span class="link-icon">👤</span> My Profile</a>
+      <p class="sidebar-label" style="margin-top:24px">Support</p>
+      <a href="about.html"   class="sidebar-link"><span class="link-icon">ℹ️</span> About</a>
+      <a href="contact.html" class="sidebar-link"><span class="link-icon">📬</span> Contact</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" onclick="Auth.logout()">
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary)">A</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username user-display-name">Loading…</div>
+          <div class="sidebar-role text-muted fs-sm">Sign Out →</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+    <div class="app-topbar">
+      <div style="display:flex; align-items:center; gap:14px">
+        <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <div>
+          <h4 style="font-size:1rem; font-weight:700">Analysis Result</h4>
+          <p style="font-size:.8rem; color:var(--text-muted)">AI-generated preliminary skin analysis</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="analyze.html" class="btn btn-primary btn-sm">+ New Analysis</a>
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary);cursor:pointer" onclick="window.location='profile.html'">A</div>
+      </div>
+    </div>
+
+    <div class="app-content">
+
+      <!-- Result Hero Card -->
+      <div class="result-header">
+        <img id="result-image" src="" alt="Uploaded skin image" class="result-image"
+          style="object-fit:cover; background:rgba(255,255,255,.1)"
+          onerror="this.style.display='none'" />
+
+        <div class="result-meta">
+          <span class="result-badge">🤖 AI Analysis Result</span>
+          <h1 class="result-disease" id="result-disease">–</h1>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px">
+            <span class="badge badge-primary" id="result-severity">–</span>
+            <span class="badge" style="background:rgba(255,255,255,.2); color:#fff">ICD-10: <span id="result-icd10">–</span></span>
+          </div>
+          <div class="result-date" id="result-date">–</div>
+        </div>
+
+        <!-- Confidence Ring -->
+        <div class="confidence-ring" style="flex-shrink:0">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="10"/>
+            <circle id="conf-circle" cx="70" cy="70" r="52" fill="none" stroke="var(--success)" stroke-width="10"
+              stroke-dasharray="326.73" stroke-dashoffset="326.73"
+              stroke-linecap="round"
+              style="transition: stroke-dashoffset 1s ease, stroke .5s ease; transform:rotate(-90deg); transform-origin:center"/>
+          </svg>
+          <div class="confidence-ring-value">
+            <div id="conf-pct-text" style="font-size:1.5rem; color:#fff; font-weight:800">–</div>
+            <div style="font-size:.7rem; color:rgba(255,255,255,.75)">Confidence</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px">
+        <button class="btn btn-primary" id="download-report-btn" onclick="downloadReport()" data-id="">
+          📄 Download Report
+        </button>
+        <a href="history.html" class="btn btn-outline">📋 View History</a>
+        <a href="analyze.html" class="btn btn-ghost">🔬 Analyze Another Image</a>
+      </div>
+
+      <div class="grid-2" style="gap:24px; align-items:start">
+
+        <!-- Left Column -->
+        <div style="display:flex; flex-direction:column; gap:20px">
+
+          <!-- AI Prediction Summary -->
+          <div class="card">
+            <div class="card-header"><h5>🤖 AI Prediction Summary</h5></div>
+            <div class="card-body" style="padding:20px">
+              <p id="disease-description" style="font-size:.9rem; line-height:1.7; color:var(--text-secondary)">Loading…</p>
+            </div>
+          </div>
+
+          <!-- Top 3 Predictions -->
+          <div class="card">
+            <div class="card-header"><h5>📊 Top Predictions (Confidence)</h5></div>
+            <div class="card-body" style="padding:20px">
+              <div id="top3-list">
+                <div class="skeleton skeleton-text" style="margin-bottom:12px"></div>
+                <div class="skeleton skeleton-text" style="margin-bottom:12px"></div>
+                <div class="skeleton skeleton-text"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- When to Consult -->
+          <div class="card" style="border-color:var(--secondary-light)">
+            <div class="card-header" style="background:var(--secondary-light)"><h5 style="color:var(--secondary)">🩺 When to Consult a Dermatologist</h5></div>
+            <div class="card-body" style="padding:20px">
+              <p id="when-to-consult" style="font-size:.9rem; color:var(--text-secondary); line-height:1.7">Loading…</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column -->
+        <div style="display:flex; flex-direction:column; gap:20px">
+
+          <!-- Common Signs -->
+          <div class="card">
+            <div class="card-header"><h5>🔎 Common Signs &amp; Symptoms</h5></div>
+            <div class="card-body" style="padding:20px">
+              <ul id="disease-signs" style="list-style:none"></ul>
+            </div>
+          </div>
+
+          <!-- General Care -->
+          <div class="card">
+            <div class="card-header"><h5>💊 General Care &amp; Precautions</h5></div>
+            <div class="card-body" style="padding:20px">
+              <p style="font-size:.8rem; color:var(--warning); font-weight:600; margin-bottom:12px">⚠️ These are general wellness tips, not medical prescriptions.</p>
+              <ul id="disease-care" style="list-style:none"></ul>
+            </div>
+          </div>
+
+          <!-- Disclaimer -->
+          <div class="disclaimer-box" style="border-color:#fca5a5; background:#fff1f2">
+            <span class="disclaimer-icon">⚠️</span>
+            <div class="disclaimer-text" style="color:#991b1b">
+              <strong>Medical Disclaimer:</strong> This AI-generated result is for informational and educational purposes only and should not be considered a medical diagnosis. The prediction is based on visual pattern recognition and may not be accurate. Always consult a qualified dermatologist or healthcare professional for proper evaluation and treatment of any skin condition. DermaAI does not prescribe medicine or provide medical treatment.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/result.js"></script>
+</body>
+</html>

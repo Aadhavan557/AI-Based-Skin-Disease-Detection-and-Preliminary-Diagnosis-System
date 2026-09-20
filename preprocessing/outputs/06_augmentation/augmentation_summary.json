@@ -1,0 +1,61 @@
+{
+  "run_timestamp": "2026-07-26T22:34:13.331951",
+  "source_dir": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\dataset_resized",
+  "output_dir": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\dataset_augmented",
+  "target_per_class": 5000,
+  "total_original": 26467,
+  "total_augmented": 26490,
+  "total_final": 52957,
+  "class_breakdown": {
+    "1. Eczema 1677": {
+      "original": 1564,
+      "augmented": 3436,
+      "total": 5000
+    },
+    "10. Warts Molluscum and other Viral Infections - 2103": {
+      "original": 1863,
+      "augmented": 3137,
+      "total": 5000
+    },
+    "2. Melanoma 15.75k": {
+      "original": 3132,
+      "augmented": 1868,
+      "total": 5000
+    },
+    "3. Atopic Dermatitis - 1.25k": {
+      "original": 1188,
+      "augmented": 3812,
+      "total": 5000
+    },
+    "4. Basal Cell Carcinoma (BCC) 3323": {
+      "original": 3309,
+      "augmented": 1691,
+      "total": 5000
+    },
+    "5. Melanocytic Nevi (NV) - 7970": {
+      "original": 7957,
+      "augmented": 0,
+      "total": 7957
+    },
+    "6. Benign Keratosis-like Lesions (BKL) 2624": {
+      "original": 2064,
+      "augmented": 2936,
+      "total": 5000
+    },
+    "7. Psoriasis pictures Lichen Planus and related diseases - 2k": {
+      "original": 1943,
+      "augmented": 3057,
+      "total": 5000
+    },
+    "8. Seborrheic Keratoses and other Benign Tumors - 1.8k": {
+      "original": 1823,
+      "augmented": 3177,
+      "total": 5000
+    },
+    "9. Tinea Ringworm Candidiasis and other Fungal Infections - 1.7k": {
+      "original": 1624,
+      "augmented": 3376,
+      "total": 5000
+    }
+  }
+}

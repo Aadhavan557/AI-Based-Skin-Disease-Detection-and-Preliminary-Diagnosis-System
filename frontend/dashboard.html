@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – DermaAI</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- ════════════ SIDEBAR ════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <span>Derma<span style="color:var(--text-muted);font-weight:400">AI</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="sidebar-label">Main Menu</p>
+      <a href="dashboard.html" class="sidebar-link active"><span class="link-icon">🏠</span> Dashboard</a>
+      <a href="analyze.html"   class="sidebar-link"><span class="link-icon">🔬</span> Analyze Skin</a>
+      <a href="history.html"   class="sidebar-link"><span class="link-icon">📋</span> Prediction History</a>
+      <a href="profile.html"   class="sidebar-link"><span class="link-icon">👤</span> My Profile</a>
+      <p class="sidebar-label" style="margin-top:24px">Support</p>
+      <a href="about.html"   class="sidebar-link"><span class="link-icon">ℹ️</span> About DermaAI</a>
+      <a href="contact.html" class="sidebar-link"><span class="link-icon">📬</span> Contact</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" id="logout-btn" onclick="Auth.logout()" title="Sign Out">
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light);color:var(--primary)">A</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username user-display-name">Loading…</div>
+          <div class="sidebar-role text-muted fs-sm">Sign Out →</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ════════════ MAIN ════════════ -->
+  <main class="app-main">
+
+    <!-- Topbar -->
+    <div class="app-topbar">
+      <div style="display:flex; align-items:center; gap:14px">
+        <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Menu">☰</button>
+        <div class="topbar-search">
+          <span>🔍</span>
+          <input type="text" placeholder="Search analyses…" id="search-input" />
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="analyze.html" class="btn btn-primary btn-sm">+ New Analysis</a>
+        <div class="topbar-icon-btn" title="Notifications">
+          🔔 <div class="notification-badge"></div>
+        </div>
+        <div class="avatar user-avatar-initial" style="background:var(--primary-light); color:var(--primary); cursor:pointer" onclick="window.location='profile.html'">A</div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="app-content">
+
+      <!-- Welcome -->
+      <div class="page-title">
+        <h2>Welcome back, <span class="user-display-name text-primary">there</span> 👋</h2>
+        <p>Here's an overview of your skin analysis activity.</p>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="grid-4 mb-32">
+        <div class="stat-card">
+          <div class="stat-icon green">🔬</div>
+          <div class="stat-info">
+            <div class="stat-label">Total Analyses</div>
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-meta">All time</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">📊</div>
+          <div class="stat-info">
+            <div class="stat-label">Recent Prediction</div>
+            <div class="stat-value fs-lg" id="stat-recent" style="font-size:1rem; margin-top:4px">–</div>
+            <div class="stat-meta">Last result</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber">📈</div>
+          <div class="stat-info">
+            <div class="stat-label">Average Confidence</div>
+            <div class="stat-value" id="stat-avg-conf">–</div>
+            <div class="stat-meta">Across all analyses</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple">📄</div>
+          <div class="stat-info">
+            <div class="stat-label">Reports Generated</div>
+            <div class="stat-value" id="stat-reports">0</div>
+            <div class="stat-meta">PDF reports</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:28px; align-items:start">
+
+        <!-- Upload Card -->
+        <div>
+          <h3 style="margin-bottom:16px">Start a New Skin Analysis</h3>
+          <div class="card card-elevated">
+            <div class="card-body" style="text-align:center; padding:40px">
+              <div style="font-size:4rem; margin-bottom:16px">🔬</div>
+              <h3 style="margin-bottom:10px">Upload Skin Image</h3>
+              <p style="margin-bottom:28px; max-width:300px; margin-left:auto; margin-right:auto">
+                Drag & drop your image or choose from your device. Supported: JPG, JPEG, PNG.
+              </p>
+              <a href="analyze.html" class="btn btn-primary btn-lg" style="margin-bottom:14px">
+                📁 Choose Image &amp; Analyze
+              </a>
+              <br/>
+              <a href="analyze.html#camera" class="btn btn-ghost btn-sm">📸 Use Camera Instead</a>
+            </div>
+          </div>
+
+          <!-- Tips -->
+          <div class="card" style="margin-top:20px">
+            <div class="card-header"><h5>📝 Tips for Better Results</h5></div>
+            <div class="card-body" style="padding:20px">
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:10px">
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary); flex-shrink:0">✓</span> Use good natural or artificial lighting
+                </li>
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary); flex-shrink:0">✓</span> Ensure the affected area is in focus and clearly visible
+                </li>
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary); flex-shrink:0">✓</span> Avoid blurry or partially obstructed images
+                </li>
+                <li style="display:flex; gap:10px; font-size:.875rem; color:var(--text-secondary)">
+                  <span style="color:var(--primary); flex-shrink:0">✓</span> Higher confidence scores indicate stronger model certainty
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent History -->
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px">
+            <h3>Recent Analyses</h3>
+            <a href="history.html" class="btn btn-ghost btn-sm">View All →</a>
+          </div>
+          <div class="card card-elevated" style="overflow:hidden">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Image</th>
+                  <th>Prediction</th>
+                  <th>Confidence</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="recent-analyses-body">
+                <tr><td colspan="5" style="text-align:center; padding:32px; color:var(--text-muted)">
+                  <div class="loading-spinner" style="width:32px;height:32px;margin:0 auto 10px;border-width:3px"></div>
+                  Loading…
+                </td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer-box mt-32">
+        <span class="disclaimer-icon">⚠️</span>
+        <p class="disclaimer-text">
+          <strong>Medical Disclaimer:</strong> All AI-generated analyses on DermaAI are for informational and educational purposes only. They do not constitute a medical diagnosis. Please consult a qualified dermatologist or healthcare professional for proper evaluation, diagnosis, and treatment of any skin condition.
+        </p>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

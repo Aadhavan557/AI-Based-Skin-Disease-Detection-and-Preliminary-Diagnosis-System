@@ -1,0 +1,8 @@
+{
+  "model_path": "D:\\aadhavan\\AI-Based Skin Disease Detection and Preliminary Diagnosis System\\models\\outputs\\best_model.pth",
+  "test_samples": 7945,
+  "top1_accuracy": 0.7174323473882945,
+  "top3_accuracy": 0.9460037759597231,
+  "top5_accuracy": 0.9913152926368786,
+  "macro_auc": 0.9612427150162717
+}
